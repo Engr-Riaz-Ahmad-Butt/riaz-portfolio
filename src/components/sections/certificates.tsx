@@ -12,7 +12,7 @@ const TestimonialsSection = () => {
           <Tag label="Certificates" />
         </div>
         <Typography variant="subtitle" className="max-w-xl text-center">
-        Certifications I've Earned:
+        Certifications I&#39;ve Earned:
         </Typography>
       </div>
 
