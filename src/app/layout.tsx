@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 const title = 'Riaz Ahmad Butt | Full Stack Developer';
 const description =
   'A self-proclaimed designer who specializes in full stack development (React.js & Node.js), from Pakistan.';
-const url = 'https://rb.dev';
+const url = 'https://www.engr-riaz.tech/';
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
+    icon: '/apple-touch-icon.png',
+    shortcut: '/apple-touch-icon.png',
     apple: '/apple-touch-icon.png',
   },
 };
