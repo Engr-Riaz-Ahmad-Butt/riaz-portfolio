@@ -359,20 +359,6 @@ export const PROJECTS: ProjectDetails[] = [
     ],
   },
   {
-    name: 'NFTS',
-    description:
-      'A platform to display NFT collections and provide services for creating, managing, and launching NFTs.',
-    url: 'https://nftsweb.netlify.app/',
-    previewImage: ProjectNft,
-    technologies: [
-      'React',
-      'CSS',
-      'Bootstrap4',
-      'React Bootstrap',
-      'Styled Components',
-    ],
-  },
-  {
     name: 'Devsiom Technology',
     description:
       'Designed and developed a responsive website for a software house, showcasing their services in custom software development and IT consulting.',
