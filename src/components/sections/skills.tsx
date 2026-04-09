@@ -42,7 +42,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <Container id='skills' className="relative overflow-hidden bg-gray-950/5 dark:bg-black">
+    <Container id='skills' className="relative overflow-hidden bg-gray-950/5">
       {/* Tech Grid Background */}
       <div className="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05]" 
            style={{ backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`, backgroundSize: '30px 30px' }} />

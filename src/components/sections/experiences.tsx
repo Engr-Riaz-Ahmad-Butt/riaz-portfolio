@@ -9,7 +9,7 @@ import Container from '@/components/layout/container';
 
 const ExperienceSection = () => {
   return (
-    <Container id="experience" className="relative overflow-hidden bg-gray-50 dark:bg-[#030303]">
+    <Container id="experience" className="relative overflow-hidden bg-gray-50 dark:bg-slate-950">
       {/* Ambient glowing background for glassmorphism */}
       <div className="absolute top-1/4 left-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-blue-600/20 blur-[150px] dark:bg-blue-600/10" />
       <div className="absolute bottom-1/4 right-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-purple-600/20 blur-[150px] dark:bg-purple-600/10" />

@@ -7,9 +7,9 @@ interface ContainerProps extends React.HTMLAttributes<HTMLElement> {}
 const Container = React.forwardRef<HTMLElement, ContainerProps>(
   ({ className, children, ...props }: ContainerProps, ref) => {
     return (
-      <section
+        <section
         className={mergeClasses(
-          'w-full bg-gray py-16 md:py-20 2xl:py-24',
+          'w-full bg-gray py-16 md:py-20 2xl:py-24 dark:bg-slate-950',
           className
         )}
         ref={ref}

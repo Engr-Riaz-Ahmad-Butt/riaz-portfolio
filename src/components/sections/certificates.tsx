@@ -12,7 +12,7 @@ const TestimonialsSection = () => {
   return (
     <Container
       id="certificates"
-      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.12),_transparent_25%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.12),_transparent_28%),linear-gradient(180deg,_#ffffff_0%,_#f8fbff_100%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.14),_transparent_22%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.1),_transparent_26%),linear-gradient(180deg,_#020617_0%,_#0f172a_100%)]"
+      className="relative overflow-hidden bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.12),_transparent_25%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.12),_transparent_28%),linear-gradient(180deg,_#ffffff_0%,_#f8fbff_100%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.12),_transparent_25%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.1),_transparent_28%),linear-gradient(180deg,_rgba(2,6,23,0.96)_0%,_rgba(2,6,23,0.96)_100%)]"
     >
       <div className="absolute inset-x-0 top-0 -z-10 h-60 bg-[radial-gradient(circle,_rgba(125,211,252,0.18),_transparent_58%)] blur-3xl dark:bg-[radial-gradient(circle,_rgba(56,189,248,0.12),_transparent_58%)]" />
 
