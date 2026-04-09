@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 const WorkSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
-  const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -68,7 +68,7 @@ const WorkSection = () => {
             <ChevronLeft size={24} className="text-gray-900 dark:text-gray-50" />
           </button>
         )}
-        
+
         {currentIndex < maxIndex && (
           <button
             onClick={handleNext}
@@ -93,7 +93,7 @@ const WorkSection = () => {
                 key={index}
                 className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0"
               >
-               <ProjectDetails project={project} />
+                <ProjectDetails project={project} />
               </div>
             ))}
           </div>
@@ -105,9 +105,8 @@ const WorkSection = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                currentIndex === index ? 'bg-gray-800 dark:bg-gray-200 w-8' : 'bg-gray-300 dark:bg-gray-600 w-2'
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${currentIndex === index ? 'bg-gray-800 dark:bg-gray-200 w-8' : 'bg-gray-300 dark:bg-gray-600 w-2'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
