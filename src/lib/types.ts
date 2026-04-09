@@ -5,6 +5,7 @@ export type TechDetails = {
   darkModeLogo?: string | StaticImageData;
   label: string;
   url: string;
+  category?: 'frontend' | 'backend' | 'database' | 'tools' | 'others';
 };
 
 export type ExperienceDetails = {

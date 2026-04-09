@@ -21,9 +21,9 @@ const ExperienceDetails = ({
   url,
 }: ExperienceDetailsProps) => {
   return (
-    <Card className="mx-auto flex w-full max-w-6xl flex-col justify-between border border-white/20 bg-white/10 backdrop-blur-md shadow-lg gap-4 p-8 md:flex-row md:gap-8">
+    <Card className="mx-auto flex w-full max-w-6xl flex-col justify-between border border-gray-100 bg-white shadow-sm gap-4 p-8 md:flex-row md:gap-8 dark:border-gray-800 dark:bg-gray-900">
       <div className="max-md:order-1 md:w-1/6">
-      <a href={url} target="_blank" rel="noopener noreferrer">
+      <a href={url} target="_blank" rel="noopener noreferrer" className="block transition-transform hover:scale-110">
         <ImageWrapper
           src={logo}
           srcForDarkMode={darkModeLogo}
@@ -33,19 +33,19 @@ const ExperienceDetails = ({
         </a>
       </div>
       <div className="flex flex-col gap-4 max-md:order-3 md:w-2/2">
-        <Typography variant="subtitle" className="font-semibold text-gray-900">
+        <Typography variant="subtitle" className="font-bold text-gray-900 dark:text-gray-100">
           {position}
         </Typography>
         <ul className="flex list-disc flex-col gap-2 md:gap-1">
           {summary?.map((sentence, index) => (
-            <Typography component="li" key={index}>
+            <Typography component="li" key={index} className="text-gray-600 dark:text-gray-300">
               {sentence}
             </Typography>
           ))}
         </ul>
       </div>
       <div className="max-md:order-2 md:w-1/4">
-        <Typography className="text-gray-700 md:text-right">
+        <Typography className="text-gray-700 dark:text-gray-400 font-medium md:text-right">
           {new Intl.DateTimeFormat('en-US', dateFormatOptions).format(
             startDate
           )}{' '}

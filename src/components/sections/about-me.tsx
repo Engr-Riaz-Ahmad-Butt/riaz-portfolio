@@ -9,7 +9,7 @@ import { EXTERNAL_LINKS } from "@/lib/data";
 
 const AboutMeSection = () => {
   return (
-    <Container className="bg-gray-50" id="about">
+    <Container className="bg-white dark:bg-gray-950" id="about">
       <div className="self-center">
         <Tag label="About me" />
       </div>
@@ -30,10 +30,10 @@ const AboutMeSection = () => {
 
         {/* Content */}
         <div className="flex max-w-xl flex-col gap-6">
-          <Typography variant="h3">
-             About me
+          <Typography variant="h3" className="font-bold text-gray-900 dark:text-gray-100">
+             <span className="text-gradient">About me</span>
           </Typography>
-          <Typography>
+          <Typography className="text-gray-600 dark:text-gray-300">
             I am a passionate Full Stack Software Developer with a keen interest
             in frontend technologies and a strong foundation in building fast,
             responsive, and visually stunning web applications. My expertise
@@ -41,7 +41,7 @@ const AboutMeSection = () => {
             enriched by hands-on experience with modern tools like Next.js,
             TypeScript, NestJS, TailwindCSS, and Supabase.
           </Typography>
-          <Typography>
+          <Typography className="text-gray-600 dark:text-gray-300">
           In addition to my
             frontend and full-stack work, I have honed skills as a NetSuite
             Developer, customizing ERP systems and optimizing workflows to
@@ -51,7 +51,7 @@ const AboutMeSection = () => {
             invaluable industry experience and a deeper understanding of
             software development practices. 
           </Typography>
-          <Typography>
+          <Typography className="text-gray-600 dark:text-gray-300">
           With a passion for creating seamless
             user experiences and maintaining clean, high-performance code, I
             enjoy working on projects end-to-end, from ideation to deployment. I
@@ -59,18 +59,18 @@ const AboutMeSection = () => {
             solutions.
           </Typography>
 
-          <Typography>
+          <Typography className="text-gray-600 dark:text-gray-300">
             I am very much a progressive thinker and enjoy working on products
             end to end, from ideation all the way to development.
           </Typography>
 
-          <Typography variant="h3">Education</Typography>
+          <Typography variant="h3" className="font-bold text-gray-900 dark:text-gray-100">Education</Typography>
           <div className="flex flex-col gap-2 md:flex-row md:gap-6">
             <ul className="flex list-inside list-disc flex-col gap-2">
-              <Typography component="li">BSc Software Engineering</Typography>
+              <Typography component="li" className="text-gray-600 dark:text-gray-300 font-medium">BSc Software Engineering</Typography>
             </ul>
           </div>
-          <Typography>
+          <Typography className="text-gray-600 dark:text-gray-300 italic">
             One last thing, I&apos;m available for freelance work, so feel free
             to reach out.
           </Typography>

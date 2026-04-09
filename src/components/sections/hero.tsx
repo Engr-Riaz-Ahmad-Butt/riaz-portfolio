@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 import HeadShortPic from '/public/images/headshort.jpg';
 import SocialIcons from '@/components/data-display/social-icons';
@@ -11,7 +14,12 @@ const HeroSection = () => {
     <Container id="hero">
       <div className="flex flex-col gap-12 md:flex-row">
         {/* Image */}
-        <div className="flex items-center justify-center md:order-last md:flex-grow md:justify-end">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex items-center justify-center md:order-last md:flex-grow md:justify-end"
+        >
           <div className="relative h-[300px] w-[280px] md:h-[360px] md:w-[320px]">
             <Image
               src={HeadShortPic}
@@ -21,28 +29,44 @@ const HeroSection = () => {
             ></Image>
             <div className="absolute h-[280px] w-[280px] border-8 border-transparent bg-gray-200 max-md:top-5 md:bottom-0 md:right-0 md:h-[320px] md:w-[280px]"></div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Content */}
-        <div className="flex max-w-3xl flex-grow flex-col justify-center gap-8 md:order-first md:items-start md:justify-center 2xl:gap-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", staggerChildren: 0.2 }}
+          className="flex max-w-3xl flex-grow flex-col justify-center gap-8 md:order-first md:items-start md:justify-center 2xl:gap-12"
+        >
           <div className="flex flex-col gap-2">
-            <Typography variant="h1">
-              Hi, I&apos;m Riaz{' '}
-              <span className="inline-block animate-waving-hand">👋</span>
-            </Typography>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Typography variant="h1">
+                Hi, I&apos;m <span className="text-gradient">Riaz</span>{' '}
+                <span className="inline-block animate-waving-hand">👋</span>
+              </Typography>
+            </motion.div>
             
-            
-            <Typography>
-
-            I&apos;m a Software Engineer and Full Stack Developer (MERN) with expertise in building fast, responsive, and visually appealing web applications using React.js, Node.js, Express, and MongoDB. I also have experience as a NetSuite Developer, working on ERP systems and customizing workflows to improve business processes.
-              {/* I&apos;m a full stack developer (React.js & Node.js) with a focus
-              on creating (and occasionally designing) exceptional digital
-              experiences that are fast, accessible, visually appealing, and
-              responsive. Even though I have been creating web applications for
-              over 1 years, I still love it as if it was something new. */}
-            </Typography>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <Typography>
+                I&apos;m a Software Engineer and Full Stack Developer (MERN) with expertise in building fast, responsive, and visually appealing web applications using React.js, Node.js, Express, and MongoDB. I also have experience as a NetSuite Developer, working on ERP systems and customizing workflows to improve business processes.
+              </Typography>
+            </motion.div>
           </div>
-          <div className="flex flex-col gap-2">
+
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col gap-2"
+          >
             <div className="flex gap-2">
               <MapPin className="stroke-gray-600" />
               <Typography>Islamabad, Pakistan</Typography>
@@ -57,9 +81,16 @@ const HeroSection = () => {
               </div>
               <Typography>Available for new projects</Typography>
             </div>
-          </div>
-          <SocialIcons />
-        </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            <SocialIcons />
+          </motion.div>
+        </motion.div>
       </div>
     </Container>
   );

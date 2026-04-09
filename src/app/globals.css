@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ref :: https://twitter.com/steventey/status/1677339375645126659 */
 :root {
   --app-gray-default: 255 255 255;
   --app-gray-50: 249 250 251;
@@ -16,6 +15,10 @@
   --app-gray-800: 31 41 55;
   --app-gray-900: 17 24 39;
   --app-gray-950: 3 7 18;
+
+  /* Primary Accent - Indigo */
+  --primary: 99 102 241;
+  --primary-foreground: 255 255 255;
 }
 
 .dark {
@@ -31,4 +34,51 @@
   --app-gray-800: 243 244 246;
   --app-gray-900: 249 250 251;
   --app-gray-950: 255 255 255;
+
+  /* Primary Accent - Violet */
+  --primary: 139 92 246;
+  --primary-foreground: 255 255 255;
+}
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+  body {
+    @apply bg-gray text-gray-600 dark:text-gray-400;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 dark:border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+  }
+
+  .premium-card {
+    @apply relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900/50;
+  }
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

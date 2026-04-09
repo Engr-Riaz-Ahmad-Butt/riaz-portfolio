@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 import {
   Drawer,
@@ -20,13 +21,15 @@ import DownloadCV from '@/components/general/download-cv';
 import Typography from '@/components/general/typography';
 
 const Logo = () => (
-  <Typography variant="h2" className="font-bold">
-    {'<RB />'}
+  <Typography variant="h2" className="group font-bold">
+    <span className="text-gradient transition-all duration-300 group-hover:tracking-wider">
+      {'<RB />'}
+    </span>
   </Typography>
 );
 
 const Header = () => {
-  const scrolled = useScroll(40);
+  const scrolled = useScroll(20);
   const [isOpen, setIsOpen] = useState(false);
   const size = useWindowSize();
 
@@ -40,23 +43,31 @@ const Header = () => {
   return (
     <header
       className={mergeClasses(
-        'sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100',
-        scrolled ? 'bg-gray/50 backdrop-blur-xl md:border-gray-100' : ''
+        'sticky top-0 z-40 w-full transition-all duration-300',
+        scrolled 
+          ? 'border-b border-white/10 bg-white/70 py-2 backdrop-blur-lg dark:bg-black/70' 
+          : 'bg-transparent py-4'
       )}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between p-4 md:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-8">
         <Link href="/" noCustomization>
           <Logo />
         </Link>
-        <div className="hidden items-center gap-6 md:flex">
-          <ul className="flex list-none items-center gap-6">
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex list-none items-center gap-8">
             {NAV_LINKS.map((link, index) => (
-              <li key={index}>
-                <Link href={link.href}>{link.label}</Link>
+              <li key={index} className="relative group">
+                <Link href={link.href} className="text-sm font-medium transition-colors hover:text-indigo-500">
+                  {link.label}
+                </Link>
+                <motion.div 
+                  className="absolute -bottom-1 left-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"
+                  layoutId="underline"
+                />
               </li>
             ))}
           </ul>
-          <div className="h-6 w-0.5 bg-gray-100"></div>
+          <div className="h-5 w-px bg-gray-200 dark:bg-gray-800"></div>
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
             <DownloadCV />
@@ -69,8 +80,8 @@ const Header = () => {
               <Menu />
             </IconButton>
           </DrawerTrigger>
-          <DrawerContent>
-            <div className="flex items-center justify-between border-b border-gray-100 p-4">
+          <DrawerContent className="glass">
+            <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 p-4">
               <Logo />
               <DrawerClose asChild>
                 <IconButton>
@@ -78,12 +89,13 @@ const Header = () => {
                 </IconButton>
               </DrawerClose>
             </div>
-            <div className="border-b border-gray-100 p-4">
-              <ul className="flex list-none flex-col gap-4">
+            <div className="p-4">
+              <ul className="flex list-none flex-col gap-6">
                 {NAV_LINKS.map((link, index) => (
                   <li key={index}>
                     <Link
                       href={link.href}
+                      className="text-lg font-medium"
                       onClick={() => {
                         const timeoutId = setTimeout(() => {
                           setIsOpen(false);
@@ -97,7 +109,7 @@ const Header = () => {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col gap-4 p-4">
+            <div className="mt-auto flex flex-col gap-6 p-4 border-t border-gray-100 dark:border-gray-800">
               <div className="flex items-center justify-between">
                 <Typography>Switch Theme</Typography>
                 <ThemeSwitcher />
