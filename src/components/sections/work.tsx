@@ -50,7 +50,7 @@ const WorkSection = () => {
   }, [currentIndex, itemsPerView]);
 
   return (
-    <Container id="work" className="bg-gray-50">
+    <Container id="work">
       <div className="flex flex-col items-center gap-4">
         <div className="self-center">
           <Tag label="Projects" />
