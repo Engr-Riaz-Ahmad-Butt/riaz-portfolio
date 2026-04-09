@@ -29,6 +29,12 @@ import ProjectDevsiom from '/public/images/devsiom.png';
 import ProjectNft from '/public/images/nfts.png';
 import ProjectLogoMaker from '/public/images/logoMaker.png';
 import ProjectAirCasita from '/public/images/airCasita.png';
+import ProjectTalkingMe from '/public/images/talkingme.png';
+import ProjectNyfClient from '/public/images/nyf.png';
+import ProjectNyfAdmin from '/public/images/dashboard.png';
+import ProjectAthadak from '/public/images/athadak.png';
+import ProjectSwod from '/public/images/swod.png';
+import ProjectRodriguez from '/public/images/Rodriguez.png';
 
 import AvatarKrisztian from '/public/images/avatar-krisztian.png';
 import AvatarEugen from '/public/images/avatar-eugen.png';
@@ -207,7 +213,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     url: 'https://mexil.it/',
     logoAlt: 'Mexil Software Solutions',
     position: 'MERN Stack Developer',
-    startDate: new Date(2024, 12),
+    startDate: new Date(2024, 3),
     currentlyWorkHere: true,
     summary: [
       'Develop web apps with the MERN stack.',
@@ -216,35 +222,35 @@ export const EXPERIENCES: ExperienceDetails[] = [
       'Design UIs with TailwindCSS and Shadcn for smooth experiences'
     ],
   },
-  {
-    logo: LogoDevsiom,
-    url: 'https://devsiomtechnologies.com/',
-    logoAlt: 'Devsiom technologies',
-    position: 'MERN Stack Developer',
-    startDate: new Date(2024, 11),
-    currentlyWorkHere: true,
-    summary: [
-      'Developed reusable code to optimize development time and reduce redundancy.',
-      'Worked with a variety of technologies, including React js, Next.js, Typescript, Express.js, Node js, Tailwindcss, and others.',
-      'Collaborated with cross-functional teams to design innovative solutions for complex business requirements.',
-      'Designed responsive web components using React JS directives for a seamless user experience across devices.',
-      'Reviewed code, debugged problems, and corrected issues.'
-    ],
-  },
-  {
-    logo: LogoAbacus,
-    url: 'https://abacus-global.com/',
-    logoAlt: 'Abacus logo',
-    position: 'NetSuite Developer',
-    startDate: new Date(2024, 1),
-    endDate: new Date(2024, 3),
-    summary: [
-      'Worked closely with clients to gather requirements and translate them into technical specifications for implementation.',
-      'Streamlined business processes by creating custom approval workflows.',
-      'Enhanced user experience through tailored module customizations.',
-      'Developed advanced HTML/PDF templates to generate insightful and personalized reports.',
-    ],
-  },
+  // {
+  //   logo: LogoDevsiom,
+  //   url: 'https://devsiomtechnologies.com/',
+  //   logoAlt: 'Devsiom technologies',
+  //   position: 'MERN Stack Developer',
+  //   startDate: new Date(2024, 11),
+  //   currentlyWorkHere: true,
+  //   summary: [
+  //     'Developed reusable code to optimize development time and reduce redundancy.',
+  //     'Worked with a variety of technologies, including React js, Next.js, Typescript, Express.js, Node js, Tailwindcss, and others.',
+  //     'Collaborated with cross-functional teams to design innovative solutions for complex business requirements.',
+  //     'Designed responsive web components using React JS directives for a seamless user experience across devices.',
+  //     'Reviewed code, debugged problems, and corrected issues.'
+  //   ],
+  // },
+  // {
+  //   logo: LogoAbacus,
+  //   url: 'https://abacus-global.com/',
+  //   logoAlt: 'Abacus logo',
+  //   position: 'NetSuite Developer',
+  //   startDate: new Date(2024, 1),
+  //   endDate: new Date(2024, 3),
+  //   summary: [
+  //     'Worked closely with clients to gather requirements and translate them into technical specifications for implementation.',
+  //     'Streamlined business processes by creating custom approval workflows.',
+  //     'Enhanced user experience through tailored module customizations.',
+  //     'Developed advanced HTML/PDF templates to generate insightful and personalized reports.',
+  //   ],
+  // },
   {
     logo: LogoBytewise,
     url: 'https://www.bytewiseltd.com/',
@@ -261,6 +267,97 @@ export const EXPERIENCES: ExperienceDetails[] = [
 ];
 
 export const PROJECTS: ProjectDetails[] = [
+  {
+    name: 'Talking Me',
+    description:
+      'An AI-powered platform that analyzes resumes and video introductions to help users improve their professional profiles. It provides personalized feedback and insights to enhance both communication and technical presentation skills.',
+    url: 'https://talkingme.wtbyte.com/',
+    previewImage: ProjectTalkingMe,
+    technologies: [
+      'MERN Stack',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'AI Integration',
+      'Tailwind CSS',
+    ],
+  },
+  {
+    name: 'NYF Holidays (Client)',
+    description:
+      'A travel booking platform that offers instant bookings, customized holiday packages, and corporate event planning. It provides seamless travel experiences through an easy-to-use interface with secure and fast bookings.',
+    url: 'https://nyf-client-60ad3ed6f108.herokuapp.com/',
+    previewImage: ProjectNyfClient,
+    technologies: [
+      'MERN Stack',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Bootstrap',
+    ],
+  },
+  {
+    name: 'NYF Holidays (Admin Dashboard)',
+    description:
+      'An advanced admin dashboard for NYF Holidays where administrators can manage bookings, packages, customers, and reports efficiently with a clean and responsive UI.',
+    url: 'https://nyf-admin-staging-4.vercel.app/dashboard',
+    previewImage: ProjectNyfAdmin,
+    technologies: [
+      'MERN Stack',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Bootstrap',
+    ],
+  },
+  {
+    name: 'Athadak',
+    description:
+      'A modern web platform built using the MERN stack, designed for enhanced user engagement and smooth navigation experience.',
+    url: 'https://athadak.com/home/',
+    previewImage: ProjectAthadak,
+    technologies: [
+      'MERN Stack',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'Bootstrap',
+    ],
+  },
+  {
+    name: 'SWOD Organization',
+    description:
+      'A simple yet elegant website built for a welfare organization to highlight their community services and social initiatives.',
+    url: 'https://swod.netlify.app/',
+    previewImage: ProjectSwod,
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+  },
+  {
+    name: 'The Rodriguez Co.',
+    description:
+      'A professional real estate website showcasing properties and services with an elegant and responsive layout.',
+    url: 'https://therodriguezco.netlify.app/',
+    previewImage: ProjectRodriguez,
+    technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+  },
+  {
+    name: 'NFTS',
+    description:
+      'A platform to display NFT collections and provide services for creating, managing, and launching NFTs.',
+    url: 'https://nftsweb.netlify.app/',
+    previewImage: ProjectNft,
+    technologies: [
+      'React',
+      'CSS',
+      'Bootstrap4',
+      'React Bootstrap',
+      'Styled Components',
+    ],
+  },
   {
     name: 'NFTS',
     description:
