@@ -1,59 +1,101 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { TechDetails } from '@/lib/types';
 import ImageWrapper from '@/components/data-display/image-wrapper';
 import Typography from '@/components/general/typography';
 
-const SkillCard = ({ logo, darkModeLogo, label, url }: TechDetails) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+const SkillCard = ({ logo, darkModeLogo, label, category }: TechDetails) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  // Mouse tracking for 3D Tilt and Spotlight
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['15deg', '-15deg']);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-15deg', '15deg']);
+  const springConfig = { damping: 20, stiffness: 150 };
+  const springX = useSpring(mouseX, springConfig);
+  const springY = useSpring(mouseY, springConfig);
+
+  // Transitions for 3D Tilt
+  const rotateX = useTransform(springY, [0, 1], [15, -15]);
+  const rotateY = useTransform(springX, [0, 1], [-15, 15]);
+
+  // Transitions for Spotlight
+  const spotlightX = useTransform(springX, [0, 1], ['0%', '100%']);
+  const spotlightY = useTransform(springY, [0, 1], ['0%', '100%']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-
-    x.set(xPct);
-    y.set(yPct);
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    
+    // Normalize mouse position between 0 and 1
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    
+    mouseX.set(x);
+    mouseY.set(y);
   };
 
+  const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
+    setIsHovered(false);
+    mouseX.set(0.5);
+    mouseY.set(0.5);
   };
+
+  // Map categories to neon colors
+  const colorMap = {
+    frontend: 'from-cyan-400 to-blue-600',
+    backend: 'from-emerald-400 to-teal-600',
+    database: 'from-orange-400 to-red-600',
+    tools: 'from-purple-400 to-pink-600',
+    other: 'from-indigo-400 to-violet-600'
+  };
+
+  const activeColor = colorMap[category as keyof typeof colorMap] || colorMap.other;
 
   return (
     <motion.div
+      ref={cardRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
         rotateX,
         rotateY,
+        perspective: 1000,
         transformStyle: 'preserve-3d',
       }}
-      className="relative flex flex-col items-center justify-center p-6 rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 overflow-hidden group"
+      className="group relative flex flex-col items-center justify-center p-8 h-40 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-all duration-500 overflow-hidden"
     >
-      {/* Glow Effect */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      
+      {/* 1. Animated Border Beam (Shown on Hover) */}
+      <motion.div
+        animate={isHovered ? { rotate: 360 } : { rotate: 0 }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        className={`absolute -inset-[150%] z-0 bg-gradient-to-r ${activeColor} opacity-0 transition-opacity duration-300 group-hover:opacity-40 blur-2xl`}
+      />
+
+      {/* 2. Cursor Spotlight Effect */}
+      <motion.div
+        style={{
+          left: spotlightX,
+          top: spotlightY,
+          background: `radial-gradient(circle, white 0%, transparent 70%)`
+        }}
+        className="absolute -translate-x-1/2 -translate-y-1/2 w-48 h-48 opacity-0 group-hover:opacity-10 blur-3xl rounded-full z-10 pointer-events-none"
+      />
+
+      {/* 3. Card Inner Background (Keeps content readable) */}
+      <div className="absolute inset-[2px] z-10 rounded-2xl bg-[#0a0a0c]/90 dark:bg-black/80 backdrop-blur-xl" />
+
+      {/* 4. Content Container */}
       <div 
-        style={{ transform: 'translateZ(50px)' }}
-        className="flex flex-col items-center gap-4"
+        style={{ transform: 'translateZ(60px)' }}
+        className="relative z-20 flex flex-col items-center gap-4 transition-transform duration-500 group-hover:scale-105"
       >
-        <div className="relative h-16 w-16 transition-transform duration-300 group-hover:scale-110">
+        <div className="relative h-16 w-16 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
           <ImageWrapper
             src={logo}
             srcForDarkMode={darkModeLogo}
@@ -63,15 +105,15 @@ const SkillCard = ({ logo, darkModeLogo, label, url }: TechDetails) => {
           />
         </div>
         <Typography 
-          className="font-bold text-gray-900 dark:text-gray-100 text-center"
+          className={`font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 text-center tracking-tight`}
           variant="body1"
         >
           {label}
         </Typography>
       </div>
 
-      {/* Glossy Reflection */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* 5. Bottom Accent Glow */}
+      <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${activeColor} opacity-30 group-hover:opacity-100 transition-opacity duration-500 z-30`} />
     </motion.div>
   );
 };
