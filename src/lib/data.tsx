@@ -44,7 +44,9 @@ import {
   ExperienceDetails,
   ProjectDetails,
   TechDetails,
-  TestimonialDetails,
+  // TestimonialDetails,
+
+
 } from '@/lib/types';
 
 export const EXTERNAL_LINKS = {
@@ -75,7 +77,7 @@ export const NAV_LINKS = [
   },
   {
     label: 'Projects',
-    href: '#projects',
+    href: '#work',
   },
   {
     label: 'Contact',
