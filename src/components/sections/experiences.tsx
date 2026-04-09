@@ -36,9 +36,9 @@ const ExperienceSection = () => {
         </motion.div>
       </div>
 
-      <div className="relative mx-auto max-w-5xl px-4 md:px-0">
+      <div className="relative mx-auto max-w-5xl px-1 sm:px-4 md:px-0">
         {/* Timeline Stem */}
-        <div className="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent md:left-1/2 md:-translate-x-1/2" />
+        <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent sm:left-6 md:left-1/2 md:-translate-x-1/2" />
 
         <div className="flex flex-col gap-12">
           {EXPERIENCES?.map((experience, index) => (

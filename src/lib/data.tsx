@@ -8,6 +8,7 @@ import LogoTypescript from '/public/images/logos/icon-typescript.svg';
 import LogoReact from '/public/images/logos/icon-react.svg';
 import LogoNextjs from '/public/images/logos/icon-nextjs.svg';
 import LogoNodejs from '/public/images/logos/icon-nodejs.svg';
+import LogoPostgresql from '/public/images/logos/icon-postgresql.svg';
 import LogoExpress from '/public/images/logos/icon-express.svg';
 import LogoExpressLight from '/public/images/logos/icon-express-light.svg';
 import LogoSocket from '/public/images/logos/icon-socket.svg';
@@ -18,6 +19,7 @@ import LogoTailwindcss from '/public/images/logos/icon-tailwindcss.svg';
 import LogoFigma from '/public/images/logos/icon-figma.svg';
 import LogoGit from '/public/images/logos/icon-git.svg';
 import LogoGithub from '/public/images/logos/GitHub-Logo.png';
+import LogoDocker from '/public/images/logos/docker.png';
 
 import LogoDevsiom from '/public/images/logos/devsiomlogo.png';
 import LogoMexil from '/public/images/logos/mexil.png';
@@ -57,8 +59,8 @@ import {
 } from '@/lib/types';
 
 export const EXTERNAL_LINKS = {
-  GITHUB: 'https://github.com/RiazAhmadButt',
-  GITHUB_REPO: 'https://github.com/RiazAhmadButt',
+  GITHUB: 'https://github.com/Engr-Riaz-Ahmad-Butt',
+  GITHUB_REPO: 'https://github.com/Engr-Riaz-Ahmad-Butt',
   // TWITTER: 'https://twitter.com',
   // FIGMA: 'https://www.figma.com',
   FIGMA_FILE:
@@ -95,11 +97,11 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = [
   {
     icon: Github,
-    url: 'https://github.com/RiazAhmadButt',
+    url: 'https://github.com/Engr-Riaz-Ahmad-Butt',
   },
   {
     icon: Linkedin,
-    url: 'https://twitter.com/',
+    url: 'https://www.linkedin.com/in/riaz-ahmad-butt/',
   },
   // {
   //   icon: Figma,
@@ -145,6 +147,12 @@ export const TECHNOLOGIES: TechDetails[] = [
     category: 'frontend',
   },
   {
+    label: 'React Flow',
+    logo: LogoReact,
+    url: 'https://reactflow.dev/',
+    category: 'frontend',
+  },
+  {
     label: 'Next.js',
     logo: LogoNextjs,
     url: 'https://nextjs.org/',
@@ -177,6 +185,30 @@ export const TECHNOLOGIES: TechDetails[] = [
     category: 'database',
   },
   {
+    label: 'SQL',
+    logo: LogoPostgresql,
+    url: 'https://en.wikipedia.org/wiki/SQL',
+    category: 'database',
+  },
+  {
+    label: 'Sequelize',
+    logo: LogoPostgresql,
+    url: 'https://sequelize.org/',
+    category: 'backend',
+  },
+  {
+    label: 'Prisma',
+    logo: LogoTypescript,
+    url: 'https://www.prisma.io/',
+    category: 'database',
+  },
+  {
+    label: 'Supabase',
+    logo: LogoMongoDB,
+    url: 'https://supabase.com/',
+    category: 'database',
+  },
+  {
     label: 'Sass/Scss',
     logo: LogoSass,
     url: 'https://sass-lang.com/',
@@ -198,6 +230,24 @@ export const TECHNOLOGIES: TechDetails[] = [
     label: 'Git',
     logo: LogoGit,
     url: 'https://git-scm.com/',
+    category: 'tools',
+  },
+  {
+    label: 'AWS',
+    logo: LogoNodejs,
+    url: 'https://aws.amazon.com/',
+    category: 'tools',
+  },
+  {
+    label: 'Docker',
+    logo: LogoDocker,
+    url: 'https://www.docker.com/',
+    category: 'tools',
+  },
+  {
+    label: 'Heroku',
+    logo: LogoNodejs,
+    url: 'https://www.heroku.com/',
     category: 'tools',
   },
   {

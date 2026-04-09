@@ -33,9 +33,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const size = useWindowSize();
 
-  // close sidebar if open in screen size < 768px
+  // Close the mobile drawer once we enter the desktop navigation breakpoint.
   useEffect(() => {
-    if (size?.width && size?.width > 767 && isOpen) {
+    if (size?.width && size?.width >= 1024 && isOpen) {
       setIsOpen(false);
     }
   }, [size, isOpen]);
@@ -49,12 +49,12 @@ const Header = () => {
           : 'bg-transparent py-4'
       )}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
         <Link href="/" noCustomization>
           <Logo />
         </Link>
-        <div className="hidden items-center gap-8 md:flex">
-          <ul className="flex list-none items-center gap-8">
+        <div className="hidden items-center gap-6 lg:flex xl:gap-8">
+          <ul className="flex list-none items-center gap-5 xl:gap-8">
             {NAV_LINKS.map((link, index) => (
               <li key={index} className="relative group">
                 <Link href={link.href} className="text-sm font-medium transition-colors hover:text-indigo-500">
@@ -75,7 +75,7 @@ const Header = () => {
         </div>
 
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
-          <DrawerTrigger asChild className="flex md:hidden">
+          <DrawerTrigger asChild className="flex lg:hidden">
             <IconButton>
               <Menu />
             </IconButton>
