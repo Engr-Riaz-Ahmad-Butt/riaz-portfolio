@@ -23,6 +23,7 @@ import LogoDevsiom from '/public/images/logos/devsiomlogo.png';
 import LogoMexil from '/public/images/logos/mexil.png';
 import LogoAbacus from '/public/images/logos/abacus.webp';
 import LogoBytewise from '/public/images/logos/bytewise.png';
+import LogoAawaz from '/public/images/logos/aawazWhiteLogo.png';
 
 
 import ProjectDevsiom from '/public/images/devsiom.png';
@@ -209,17 +210,31 @@ export const TECHNOLOGIES: TechDetails[] = [
 
 export const EXPERIENCES: ExperienceDetails[] = [
   {
+    logo: LogoAawaz,
+    url: 'https://aawaz.ai/',
+    logoAlt: 'Aawaz AI',
+    position: 'Full Stack Developer',
+    startDate: new Date(2025, 11),
+    currentlyWorkHere: true,
+    summary: [
+      'Currently working as a Full Stack Developer on frontend systems connected with ML-driven products and workflows.',
+      'Collaborate closely with ML teams to integrate models and data pipelines into user-facing applications.',
+      'Build interactive frontend experiences using React Flow, React.js, and Next.js.',
+      'Support product delivery across UI implementation, integrations, and cross-team technical coordination.'
+    ],
+  },
+  {
     logo: LogoMexil,
     url: 'https://mexil.it/',
     logoAlt: 'Mexil Software Solutions',
-    position: 'MERN Stack Developer',
+    position: 'Full Stack Developer',
     startDate: new Date(2024, 3),
-    currentlyWorkHere: true,
+    endDate: new Date(2025, 10),
     summary: [
-      'Develop web apps with the MERN stack.',
-      'Create responsive UIs using React.js and Next.js for SSR/SSG',
-      'Optimize relational databases with Sequelize ORM.',
-      'Design UIs with TailwindCSS and Shadcn for smooth experiences'
+      'Built and maintained full-stack web applications using React.js, Next.js, Node.js, and the broader MERN ecosystem.',
+      'Created responsive frontend experiences and integrated APIs for production-ready user workflows.',
+      'Worked across frontend and backend tasks, improving application performance and delivery quality.',
+      'Contributed UI implementation with Tailwind CSS and component-based development practices.'
     ],
   },
   // {
@@ -255,7 +270,7 @@ export const EXPERIENCES: ExperienceDetails[] = [
     logo: LogoBytewise,
     url: 'https://www.bytewiseltd.com/',
     logoAlt: 'bytewise logo',
-    position: 'MERN Stack',
+    position: 'MERN Stack Fellow',
     startDate: new Date(2023, 3),
     endDate: new Date(2023, 6),
     summary: [

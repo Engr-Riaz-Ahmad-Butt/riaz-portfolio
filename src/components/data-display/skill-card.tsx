@@ -88,7 +88,7 @@ const SkillCard = ({ logo, darkModeLogo, label, category }: TechDetails) => {
       />
 
       {/* 3. Card Inner Background (Keeps content readable) */}
-      <div className="absolute inset-[2px] z-10 rounded-2xl bg-[#0a0a0c]/90 dark:bg-black/80 backdrop-blur-xl" />
+      <div className="absolute inset-[2px] z-10 rounded-2xl bg-white/90 dark:bg-[#0a0a0c]/90 backdrop-blur-xl" />
 
       {/* 4. Content Container */}
       <div 
@@ -105,7 +105,7 @@ const SkillCard = ({ logo, darkModeLogo, label, category }: TechDetails) => {
           />
         </div>
         <Typography 
-          className={`font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 text-center tracking-tight`}
+          className="font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-500 dark:from-white dark:to-gray-400 text-center tracking-tight"
           variant="body1"
         >
           {label}
