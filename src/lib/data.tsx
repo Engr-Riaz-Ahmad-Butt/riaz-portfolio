@@ -20,6 +20,7 @@ import LogoFigma from '/public/images/logos/icon-figma.svg';
 import LogoGit from '/public/images/logos/icon-git.svg';
 import LogoGithub from '/public/images/logos/GitHub-Logo.png';
 import LogoDocker from '/public/images/logos/docker.png';
+import LogoHeroku from '/public/images/logos/heroku.svg';
 
 import LogoDevsiom from '/public/images/logos/devsiomlogo.png';
 import LogoMexil from '/public/images/logos/mexil.png';
@@ -246,7 +247,7 @@ export const TECHNOLOGIES: TechDetails[] = [
   },
   {
     label: 'Heroku',
-    logo: LogoNodejs,
+    logo: LogoHeroku,
     url: 'https://www.heroku.com/',
     category: 'tools',
   },
@@ -261,7 +262,7 @@ export const TECHNOLOGIES: TechDetails[] = [
 export const EXPERIENCES: ExperienceDetails[] = [
   {
     logo: LogoAawaz,
-    url: 'https://aawaz.ai/',
+    url: 'https://www.aawaz.com.pk/',
     logoAlt: 'Aawaz AI',
     position: 'Full Stack Developer',
     startDate: new Date(2025, 11),
