@@ -174,17 +174,17 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 p-6 text-white shadow-[0_24px_60px_rgba(2,6,23,0.35)] md:p-8"
+          className="relative overflow-hidden rounded-[2rem] border border-sky-200/70 bg-[linear-gradient(180deg,_#f8fbff_0%,_#edf6ff_100%)] p-6 text-slate-900 shadow-[0_24px_60px_rgba(15,23,42,0.12)] md:p-8 dark:border-white/10 dark:bg-slate-950 dark:text-white dark:shadow-[0_24px_60px_rgba(2,6,23,0.35)]"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.28),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.22),_transparent_34%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.18),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.12),_transparent_34%)] dark:bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.28),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.22),_transparent_34%)]" />
 
           <div className="relative flex h-full flex-col">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-300">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300">
               Let&apos;s collaborate
             </p>
             <Typography
               variant="h3"
-              className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white"
+              className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-slate-900 dark:text-white"
             >
               Open to building thoughtful digital experiences with ambitious teams
             </Typography>
@@ -197,25 +197,25 @@ const ContactSection = () => {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.25rem] border border-white/10 bg-white/5 px-4 py-4 backdrop-blur"
+                  className="rounded-[1.25rem] border border-sky-100 bg-white/80 px-4 py-4 backdrop-blur dark:border-white/10 dark:bg-white/5"
                 >
-                  <p className="text-sm leading-6 text-slate-200">{item}</p>
+                  <p className="text-sm leading-6 text-slate-700 dark:text-slate-200">{item}</p>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-white/5 p-5 backdrop-blur">
-              <p className="text-sm uppercase tracking-[0.24em] text-sky-300">
+            <div className="mt-8 rounded-[1.5rem] border border-sky-100 bg-white/75 p-5 backdrop-blur dark:border-white/10 dark:bg-white/5">
+              <p className="text-sm uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300">
                 Find me online
               </p>
-              <Typography className="mt-3 text-slate-200">
+              <Typography className="mt-3 text-slate-700 dark:text-slate-200">
                 You can also connect through my social profiles for updates, portfolio work, and ongoing projects.
               </Typography>
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <SocialIcons />
                 <a
                   href={`mailto:${email}`}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-sky-300 transition hover:text-sky-200"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-sky-700 transition hover:text-sky-900 dark:text-sky-300 dark:hover:text-sky-200"
                 >
                   Start a conversation
                   <ArrowUpRight size={16} />
