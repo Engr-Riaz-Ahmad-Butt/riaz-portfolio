@@ -50,7 +50,7 @@ const ExperienceSection = () => {
         <Typography variant="h3" className="text-lg">
           Certifications
         </Typography>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {CERTIFICATES.map((certificate) => (
             <a
               key={certificate.CertificateName}
@@ -60,19 +60,36 @@ const ExperienceSection = () => {
               className="rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-primary"
             >
               <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-xl bg-gray">
-                <Image
-                  src={certificate.image}
-                  alt={`${certificate.CertificateName} certificate`}
-                  fill
-                  className="object-contain p-2"
-                  sizes="200px"
-                />
+                {certificate.image ? (
+                  <Image
+                    src={certificate.image}
+                    alt={`${certificate.CertificateName} certificate`}
+                    fill
+                    className="object-contain p-2"
+                    sizes="200px"
+                  />
+                ) : (
+                  <div className="flex h-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary/10 via-gray to-primary/5 p-4 text-center">
+                    <span className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
+                      Certificate
+                    </span>
+                    <p className="text-sm font-semibold text-gray-900">
+                      {certificate.CertificateName}
+                    </p>
+                    <p className="text-xs text-gray-500">{certificate.issuer}</p>
+                  </div>
+                )}
               </div>
               <p className="font-medium text-gray-900">{certificate.CertificateName}</p>
               <p className="mt-1 text-xs text-gray-500">
                 {certificate.issuer}
                 {certificate.year ? ` · ${certificate.year}` : ''}
               </p>
+              {certificate.credentialId ? (
+                <p className="mt-1 font-mono text-[10px] text-gray-400">
+                  ID {certificate.credentialId}
+                </p>
+              ) : null}
             </a>
           ))}
         </div>

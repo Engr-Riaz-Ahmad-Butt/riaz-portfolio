@@ -305,6 +305,15 @@ export const PROJECTS: ProjectDetails[] = [
 
 export const CERTIFICATES: CertificatesDetails[] = [
   {
+    title:
+      'Front-End System Design course covering architecture patterns and scalable UI systems.',
+    CertificateName: 'Front-End System Design',
+    issuer: 'Frontend Masters (Master.dev)',
+    year: '2026',
+    credentialId: 'bf37a76b71-gkuyfreSHY',
+    url: 'https://static.frontendmasters.com/ud/c/bf37a76b71/gkuyfreSHY/frontend-system-design.pdf',
+  },
+  {
     image: NcriCertificate,
     title: 'Internship completion covering ASP.NET Core and C# fundamentals.',
     CertificateName: 'NCRI Internship',

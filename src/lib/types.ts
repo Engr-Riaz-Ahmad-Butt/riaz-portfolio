@@ -42,10 +42,11 @@ export type ProjectDetails = {
 };
 
 export type CertificatesDetails = {
-  image: string | StaticImageData;
+  image?: string | StaticImageData;
   title: string;
   CertificateName: string;
   url: string;
   issuer?: string;
   year?: string;
+  credentialId?: string;
 };
