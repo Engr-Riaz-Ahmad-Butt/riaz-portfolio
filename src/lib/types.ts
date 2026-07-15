@@ -18,21 +18,27 @@ export type ExperienceDetails = {
   endDate?: Date;
   summary: string[];
   url: string;
+  darkLogo?: boolean;
 };
+
+export type ProjectCategory = 'Full-stack' | 'Frontend';
+
+export type ProjectStatus = 'completed' | 'in-progress';
 
 export type ProjectDetails = {
   name: string;
   description: string;
   url: string;
-  previewImage: string | StaticImageData;
+  previewImage?: string | StaticImageData;
   technologies: string[];
-};
-
-export type TestimonialDetails = {
-  personName: string;
-  personAvatar?: string | StaticImageData;
-  testimonial: string;
-  title: string;
+  featured?: boolean;
+  github?: string;
+  outcome?: string;
+  role?: string;
+  category?: ProjectCategory;
+  status?: ProjectStatus;
+  caseStudySlug?: string;
+  archive?: boolean;
 };
 
 export type CertificatesDetails = {
@@ -40,4 +46,6 @@ export type CertificatesDetails = {
   title: string;
   CertificateName: string;
   url: string;
+  issuer?: string;
+  year?: string;
 };

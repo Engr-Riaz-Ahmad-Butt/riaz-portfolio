@@ -1,18 +1,22 @@
 'use client';
 
 import { SOCIAL_LINKS } from '@/lib/data';
-import IconButton from '@/components/general/icon-button';
+import { mergeClasses } from '@/lib/utils';
 
-const SocialIcons = () => {
+const SocialIcons = ({ className }: { className?: string }) => {
   return (
-    <div className="flex gap-1">
-      {SOCIAL_LINKS.map((socialLink, index) => (
-        <IconButton
-          key={index}
-          onClick={() => window.open(socialLink.url, '_blank')}
+    <div className={mergeClasses('flex gap-2', className)}>
+      {SOCIAL_LINKS.map((socialLink) => (
+        <a
+          key={socialLink.label}
+          href={socialLink.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={socialLink.label}
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:hover:bg-white/5"
         >
-          <socialLink.icon />
-        </IconButton>
+          <socialLink.icon className="h-5 w-5" />
+        </a>
       ))}
     </div>
   );

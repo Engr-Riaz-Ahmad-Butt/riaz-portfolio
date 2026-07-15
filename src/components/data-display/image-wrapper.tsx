@@ -14,7 +14,6 @@ const ImageWrapper = ({
   alt,
   ...props
 }: ImageWrapperProps) => {
-  // Ref :: https://github.com/pacocoursey/next-themes#avoid-hydration-mismatch
   const [mounted, setMounted] = useState(false);
   const { theme } = useTheme();
 
@@ -23,7 +22,7 @@ const ImageWrapper = ({
   }, []);
 
   if (!mounted) {
-    return null;
+    return <div className="h-full w-full" aria-hidden />;
   }
 
   const finalSrc = theme === 'dark' ? srcForDarkMode || src : src;

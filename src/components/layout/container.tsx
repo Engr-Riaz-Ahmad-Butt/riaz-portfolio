@@ -2,14 +2,17 @@ import * as React from 'react';
 
 import { mergeClasses } from '@/lib/utils';
 
-interface ContainerProps extends React.HTMLAttributes<HTMLElement> {}
+interface ContainerProps extends React.HTMLAttributes<HTMLElement> {
+  altSurface?: boolean;
+}
 
 const Container = React.forwardRef<HTMLElement, ContainerProps>(
-  ({ className, children, ...props }: ContainerProps, ref) => {
+  ({ className, children, altSurface = false, ...props }, ref) => {
     return (
-        <section
+      <section
         className={mergeClasses(
-          'w-full bg-gray py-16 md:py-20 2xl:py-24 dark:bg-slate-950',
+          'scroll-mt-24 w-full py-16 md:py-20 2xl:py-24',
+          altSurface ? 'bg-gray-50' : 'bg-gray',
           className
         )}
         ref={ref}

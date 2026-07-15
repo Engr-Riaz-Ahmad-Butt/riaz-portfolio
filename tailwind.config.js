@@ -8,6 +8,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+      },
       colors: {
         gray: {
           DEFAULT: 'rgb(var(--app-gray-default) / <alpha-value>)',
@@ -23,12 +28,26 @@ module.exports = {
           900: 'rgb(var(--app-gray-900) / <alpha-value>)',
           950: 'rgb(var(--app-gray-950) / <alpha-value>)',
         },
+        primary: {
+          DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
+          foreground: 'rgb(var(--primary-foreground) / <alpha-value>)',
+          muted: 'rgb(var(--primary-muted) / <alpha-value>)',
+        },
+      },
+      boxShadow: {
+        card: '0 8px 30px rgb(10 18 20 / 0.08)',
+        'card-hover': '0 16px 40px rgb(10 18 20 / 0.12)',
+        soft: '0 0 0 1px rgb(var(--app-gray-200) / 0.6), 0 20px 50px rgb(10 18 20 / 0.1)',
       },
       keyframes: {
         open: {
           '0%': {
-            opacity: 1,
+            opacity: 0,
             transform: 'translateX(100%)',
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateX(0)',
           },
         },
         close: {
@@ -49,7 +68,7 @@ module.exports = {
         },
       },
       animation: {
-        'drawer-open': 'open 0.3s ease-in-out',
+        'drawer-open': 'open 0.3s ease-out',
         'drawer-close': 'close 0.3s ease-in-out',
         'waving-hand': 'waving 2s linear 3',
       },
@@ -57,6 +76,3 @@ module.exports = {
   },
   plugins: [],
 };
-
-// Ref :: https://twitter.com/steventey/status/1677339375645126659
-// Ref :: https://tailwindcss.com/docs/customizing-colors#using-css-variables

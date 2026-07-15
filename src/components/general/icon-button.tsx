@@ -4,12 +4,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { mergeClasses } from '@/lib/utils';
 
 const iconButtonVariants = cva(
-  'flex justify-center items-center hover:bg-gray-100 active:bg-gray-200 rounded-lg p-1.5 transition-colors duration-200 [&_svg]:stroke-gray-600 [&_svg]:hover:stroke-gray-700',
+  'inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 transition-colors duration-200 hover:bg-gray-100 active:bg-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary [&_svg]:stroke-gray-600 [&_svg]:hover:stroke-gray-900',
   {
     variants: {
       size: {
-        md: '[&_svg]:w-6 [&_svg]:h-6',
-        lg: '[&_svg]:w-8 [&_svg]:h-8',
+        md: '[&_svg]:h-5 [&_svg]:w-5',
+        lg: '[&_svg]:h-6 [&_svg]:w-6',
       },
     },
     defaultVariants: {
@@ -21,7 +21,6 @@ const iconButtonVariants = cva(
 export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof iconButtonVariants> {
-  asChild?: boolean;
   showTooltip?: boolean;
   tooltipText?: string;
 }
@@ -31,7 +30,6 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
     {
       className,
       size,
-      asChild = false,
       showTooltip = false,
       tooltipText = '',
       children,
@@ -41,20 +39,16 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ) => {
     return (
       <button
-        className={mergeClasses(
-          'relative',
-          iconButtonVariants({ size }),
-          className
-        )}
+        className={mergeClasses('relative', iconButtonVariants({ size }), className)}
         ref={ref}
         {...props}
       >
         {children}
-        {showTooltip && tooltipText.length > 0 && (
-          <span className="absolute -top-8 rounded-lg bg-gray-200 px-2 py-1 text-sm">
+        {showTooltip && tooltipText.length > 0 ? (
+          <span className="pointer-events-none absolute -top-9 left-1/2 z-10 -translate-x-1/2 rounded-lg bg-gray-900 px-2 py-1 text-xs text-gray-50 opacity-100 transition-opacity">
             {tooltipText}
           </span>
-        )}
+        ) : null}
       </button>
     );
   }

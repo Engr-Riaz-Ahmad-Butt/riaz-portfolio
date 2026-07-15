@@ -10,7 +10,7 @@ import {
   DrawerContent,
   DrawerClose,
 } from '@/components/navigation/drawer';
-import { NAV_LINKS } from '@/lib/data';
+import { getSectionId, NAV_LINKS } from '@/lib/site-config';
 import { mergeClasses } from '@/lib/utils';
 import useWindowSize from '@/hooks/use-window-size';
 import useScroll from '@/hooks/use-scroll';
@@ -18,100 +18,124 @@ import Link from '@/components/navigation/link';
 import ThemeSwitcher from '@/components/general/theme-switcher';
 import IconButton from '@/components/general/icon-button';
 import DownloadCV from '@/components/general/download-cv';
-import Typography from '@/components/general/typography';
 
 const Logo = () => (
-  <Typography variant="h2" className="group font-bold">
-    <span className="text-gradient transition-all duration-300 group-hover:tracking-wider">
-      {'<RB />'}
-    </span>
-  </Typography>
+  <span className="font-mono text-xl font-bold text-gradient transition-colors">
+    {'<RB />'}
+  </span>
 );
 
 const Header = () => {
   const scrolled = useScroll(20);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState(NAV_LINKS[0].href);
   const size = useWindowSize();
 
-  // Close the mobile drawer once we enter the desktop navigation breakpoint.
   useEffect(() => {
-    if (size?.width && size?.width >= 1024 && isOpen) {
+    if (size?.width && size.width >= 1024 && isOpen) {
       setIsOpen(false);
     }
   }, [size, isOpen]);
 
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((link) => getSectionId(link.href));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id, index) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveHref(NAV_LINKS[index].href);
+          }
+        },
+        { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((observer) => observer.disconnect());
+  }, []);
+
   return (
     <header
       className={mergeClasses(
-        'sticky top-0 z-40 w-full transition-all duration-300',
-        scrolled 
-          ? 'border-b border-white/10 bg-white/70 py-2 backdrop-blur-lg dark:bg-black/70' 
-          : 'bg-transparent py-4'
+        'sticky top-0 z-40 w-full border-b border-transparent py-3 transition-[background-color,border-color,backdrop-filter] duration-300',
+        scrolled
+          ? 'border-white/10 bg-gray/80 backdrop-blur-md'
+          : 'bg-transparent'
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
-        <Link href="/" noCustomization>
+        <Link href="/" noCustomization aria-label="Home">
           <Logo />
         </Link>
-        <div className="hidden items-center gap-6 lg:flex xl:gap-8">
+
+        <nav aria-label="Main" className="hidden items-center gap-6 lg:flex xl:gap-8">
           <ul className="flex list-none items-center gap-5 xl:gap-8">
-            {NAV_LINKS.map((link, index) => (
-              <li key={index} className="relative group">
-                <Link href={link.href} className="text-sm font-medium transition-colors hover:text-indigo-500">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href} className="relative">
+                <Link
+                  href={link.href}
+                  className={mergeClasses(
+                    'text-sm font-medium transition-colors hover:text-primary',
+                    activeHref === link.href ? 'text-primary' : 'text-gray-600'
+                  )}
+                >
                   {link.label}
                 </Link>
-                <motion.div 
-                  className="absolute -bottom-1 left-0 h-0.5 w-0 bg-indigo-500 transition-all duration-300 group-hover:w-full"
-                  layoutId="underline"
-                />
+                {activeHref === link.href ? (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 h-0.5 w-full origin-left bg-primary"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                ) : null}
               </li>
             ))}
           </ul>
-          <div className="h-5 w-px bg-gray-200 dark:bg-gray-800"></div>
+          <div className="h-5 w-px bg-gray-200" />
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
             <DownloadCV />
           </div>
-        </div>
+        </nav>
 
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild className="flex lg:hidden">
-            <IconButton>
+            <IconButton aria-label="Open menu">
               <Menu />
             </IconButton>
           </DrawerTrigger>
-          <DrawerContent className="glass">
-            <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 p-4">
+          <DrawerContent className="bg-gray/95 backdrop-blur-md">
+            <div className="flex items-center justify-between border-b border-gray-200 p-4">
               <Logo />
               <DrawerClose asChild>
-                <IconButton>
+                <IconButton aria-label="Close menu">
                   <X />
                 </IconButton>
               </DrawerClose>
             </div>
-            <div className="p-4">
+            <nav aria-label="Mobile" className="p-4">
               <ul className="flex list-none flex-col gap-6">
-                {NAV_LINKS.map((link, index) => (
-                  <li key={index}>
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
                     <Link
                       href={link.href}
                       className="text-lg font-medium"
-                      onClick={() => {
-                        const timeoutId = setTimeout(() => {
-                          setIsOpen(false);
-                          clearTimeout(timeoutId);
-                        }, 500);
-                      }}
+                      onClick={() => setIsOpen(false)}
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="mt-auto flex flex-col gap-6 p-4 border-t border-gray-100 dark:border-gray-800">
+            </nav>
+            <div className="mt-auto flex flex-col gap-6 border-t border-gray-200 p-4">
               <div className="flex items-center justify-between">
-                <Typography>Switch Theme</Typography>
+                <span className="text-sm text-gray-600">Switch theme</span>
                 <ThemeSwitcher />
               </div>
               <DownloadCV />

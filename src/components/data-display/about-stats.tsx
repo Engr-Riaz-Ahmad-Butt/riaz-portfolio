@@ -1,40 +1,75 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import {
+  animate,
+  motion,
+  useInView,
+  useMotionValue,
+  useMotionValueEvent,
+} from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
-import Typography from '../general/typography';
+
+import Typography from '@/components/general/typography';
+import { mergeClasses } from '@/lib/utils';
 
 interface StatProps {
   icon: LucideIcon;
   label: string;
-  value: string;
+  value: number;
+  suffix?: string;
   className?: string;
   delay?: number;
 }
 
-const StatBadge = ({ icon: Icon, label, value, className, delay = 0 }: StatProps) => {
+const StatBadge = ({
+  icon: Icon,
+  label,
+  value,
+  suffix = '+',
+  className,
+  delay = 0,
+}: StatProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const count = useMotionValue(0);
+  const [display, setDisplay] = useState(0);
+
+  useMotionValueEvent(count, 'change', (latest) => {
+    setDisplay(Math.round(latest));
+  });
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(count, value, {
+      duration: 1.2,
+      delay,
+      ease: 'easeOut',
+    });
+    return () => controls.stop();
+  }, [inView, count, value, delay]);
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 20 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ 
-        duration: 0.5, 
-        delay,
-        type: "spring",
-        stiffness: 100 
-      }}
-      whileHover={{ y: -5, scale: 1.05 }}
-      className={`flex items-center gap-4 p-4 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-xl ${className}`}
+      transition={{ duration: 0.45, delay }}
+      className={mergeClasses(
+        'flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray p-4 shadow-card',
+        className
+      )}
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-500">
-        <Icon size={24} />
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+        <Icon size={22} aria-hidden />
       </div>
       <div>
-        <Typography variant="body1" className="font-bold text-gray-900 dark:text-zinc-50 leading-none">
-          {value}
+        <Typography variant="body1" className="font-bold leading-none text-gray-900">
+          {display}
+          {suffix}
         </Typography>
-        <Typography variant="body3" className="text-gray-600 dark:text-zinc-400 mt-1">
+        <Typography variant="body3" className="mt-1 text-gray-500">
           {label}
         </Typography>
       </div>
