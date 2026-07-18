@@ -26,10 +26,19 @@ const FooterColumn = () => {
   }, []);
 
   return (
-    <footer className="relative mt-8 w-full overflow-hidden bg-gray text-gray-900 dark:text-white">
+    <footer
+      className="relative mt-8 w-full overflow-hidden bg-gray text-gray-900 dark:text-white"
+      style={{ position: 'relative', overflow: 'hidden' }}
+    >
       {/* Wave sits on the same canvas color as the rest of the site */}
       <div
         className="pointer-events-none absolute inset-0 select-none"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          overflow: 'hidden',
+        }}
         aria-hidden
       >
         <Image
@@ -39,11 +48,14 @@ const FooterColumn = () => {
           sizes="100vw"
           className="object-cover object-bottom opacity-[0.55] contrast-125 brightness-110 mix-blend-multiply dark:opacity-[0.72] dark:contrast-125 dark:brightness-110 dark:mix-blend-soft-light"
           priority={false}
+          style={{ objectFit: 'cover', objectPosition: 'bottom' }}
         />
         {/* Soft top fade so the wave melts into the page color */}
         <div
           className="absolute inset-0"
           style={{
+            position: 'absolute',
+            inset: 0,
             background:
               'linear-gradient(to bottom, rgb(var(--app-gray-default)) 0%, rgb(var(--app-gray-default) / 0.65) 22%, transparent 48%)',
           }}
@@ -51,6 +63,11 @@ const FooterColumn = () => {
         <div
           className="absolute inset-x-0 bottom-0 h-1/4"
           style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: '25%',
             background:
               'linear-gradient(to top, rgb(var(--app-gray-default) / 0.25) 0%, transparent 100%)',
           }}

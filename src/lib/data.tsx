@@ -26,6 +26,8 @@ import ProjectNyfClient from '/public/images/nyf.jpg';
 import ProjectNyfAdmin from '/public/images/dashboard.png';
 import ProjectAthadak from '/public/images/athadak.jpg';
 import ProjectPayloada from '/public/images/payloada.png';
+import ProjectLooprin from '/public/images/looprin.png';
+import ProjectBravingGrief from '/public/images/braving-grief.png';
 
 import NcriCertificate from '/public/images/NCRI.jpg';
 import BytwiseCertificate from '/public/images/bytwiseExpletter.jpg';
@@ -203,6 +205,47 @@ export const PROJECTS: ProjectDetails[] = [
       'Fast local-only JSON tooling with formatter, JWT decoder, diff, and schema generators.',
   },
   {
+    name: 'Looprin',
+    description:
+      'Lifestyle social platform that combines content sharing, creator discovery, and an integrated marketplace for shopping and selling — Connect. Create. Commerce.',
+    url: 'https://looprin.com/',
+    previewImage: ProjectLooprin,
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    featured: true,
+    role: 'Full Stack Developer',
+    category: 'Full-stack',
+    status: 'completed',
+    outcome:
+      'Social + commerce product with feeds, creator profiles, messaging, and in-app marketplace.',
+  },
+  {
+    name: 'NYF Holidays Client',
+    description:
+      'Travel booking client for instant bookings, holiday packages, and corporate event planning.',
+    url: 'https://nyf-client-60ad3ed6f108.herokuapp.com/',
+    previewImage: ProjectNyfClient,
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    featured: true,
+    role: 'Full Stack Developer',
+    category: 'Full-stack',
+    status: 'completed',
+    outcome: 'Public-facing booking experience paired with the NYF admin system.',
+  },
+  {
+    name: 'Braving Grief',
+    description:
+      'Book marketing site for Braving Grief — an Islamic guide to loss and healing by Tasneem Rahman, with author story, resources, newsletter, and purchase links.',
+    url: 'https://www.bravinggrief.com/',
+    previewImage: ProjectBravingGrief,
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    featured: true,
+    role: 'Frontend Developer',
+    category: 'Frontend',
+    status: 'completed',
+    outcome:
+      'Elegant book landing experience with guides, newsletter signup, and multi-store buy flows.',
+  },
+  {
     name: 'Talking Me',
     description:
       'AI-powered platform that analyzes resumes and video introductions to help users strengthen professional presentation.',
@@ -243,18 +286,6 @@ export const PROJECTS: ProjectDetails[] = [
     status: 'completed',
     outcome: 'Operations team can manage packages and bookings from one dashboard (staging demo).',
     caseStudySlug: 'nyf-admin',
-  },
-  {
-    name: 'NYF Holidays Client',
-    description:
-      'Travel booking client for instant bookings, holiday packages, and corporate event planning.',
-    url: 'https://nyf-client-60ad3ed6f108.herokuapp.com/',
-    previewImage: ProjectNyfClient,
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    role: 'Full Stack Developer',
-    category: 'Full-stack',
-    status: 'completed',
-    outcome: 'Public-facing booking experience paired with the NYF admin system.',
   },
   {
     name: 'Athadak',

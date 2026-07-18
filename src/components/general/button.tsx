@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 
 import { mergeClasses } from '@/lib/utils';
 
@@ -39,9 +39,7 @@ const secondaryVariants = cva(
   }
 );
 
-interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof secondaryVariants> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean;
   size?: 'default' | 'sm';
   variant?: 'primary' | 'outline' | 'ghost';
