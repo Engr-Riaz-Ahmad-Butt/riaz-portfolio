@@ -38,7 +38,7 @@ const highlightLine = (line: string) => {
     const keywordMatch = remaining.match(/^(const|true)\b/);
     if (keywordMatch) {
       parts.push(
-        <span key={`k-${key++}`} className="text-teal-700 dark:text-teal-300">
+        <span key={`k-${key++}`} className="text-zinc-700 dark:text-zinc-300">
           {keywordMatch[0]}
         </span>
       );
@@ -71,7 +71,7 @@ const highlightLine = (line: string) => {
     const identMatch = remaining.match(/^(developer)\b/);
     if (identMatch) {
       parts.push(
-        <span key={`i-${key++}`} className="text-sky-700 dark:text-sky-300">
+        <span key={`i-${key++}`} className="text-zinc-600 dark:text-zinc-400">
           {identMatch[0]}
         </span>
       );

@@ -1,7 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Mail, Dot } from 'lucide-react';
+import { Mail, Dot } from 'lucide-react';
+
+import Button from '@/components/general/button';
 
 const HERO_VIDEO_SRC =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4';
@@ -50,7 +52,7 @@ const PrismaHero = () => {
           />
         ) : (
           <div
-            className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-teal-950"
+            className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-zinc-950"
             aria-hidden
           />
         )}
@@ -100,7 +102,7 @@ const PrismaHero = () => {
                 {/* Role mono label */}
                 <p
                   className="mb-3 font-mono text-xs font-semibold uppercase tracking-[0.22em]"
-                  style={{ color: '#9BE0C8' }}
+                  style={{ color: 'rgba(228, 227, 216, 0.8)' }}
                 >
                   Full-Stack Software Engineer
                 </p>
@@ -127,33 +129,27 @@ const PrismaHero = () => {
               <span
                 className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium"
                 style={{
-                  borderColor: 'rgba(155,224,200,0.35)',
-                  color: '#9BE0C8',
-                  background: 'rgba(155,224,200,0.08)',
+                  borderColor: 'rgba(228,227,216,0.35)',
+                  color: '#E4E3D8',
+                  background: 'rgba(228,227,216,0.08)',
                 }}
               >
-                <Dot className="h-4 w-4 animate-pulse" style={{ color: '#4ade80' }} />
+                <Dot className="h-4 w-4 animate-pulse" style={{ color: '#E4E3D8' }} />
                 Available for new opportunities
               </span>
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3">
-                <a
-                  href="/#work"
-                  id="hero-cta-work"
-                  className="group inline-flex items-center gap-2 rounded-full bg-primary py-2 pl-5 pr-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:gap-3 hover:shadow-lg hover:shadow-primary/30"
-                >
-                  View My Work
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black/30 transition-transform duration-300 group-hover:scale-110">
-                    <ArrowRight className="h-4 w-4" style={{ color: CREAM }} />
-                  </span>
-                </a>
+                <Button asChild>
+                  <a href="/#work" id="hero-cta-work">
+                    View My Work
+                  </a>
+                </Button>
 
                 <a
                   href="mailto:engr.riazahmadbutt@gmail.com"
                   id="hero-cta-contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-semibold backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10"
-                  style={{ color: CREAM }}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#E1E0CC]/40 bg-[#E1E0CC]/15 px-5 py-2 text-sm font-semibold text-[#E1E0CC] backdrop-blur-sm transition-all duration-300 hover:border-[#E1E0CC]/60 hover:bg-[#E1E0CC]/25"
                 >
                   <Mail className="h-4 w-4" />
                   Let&apos;s Talk

@@ -67,7 +67,7 @@ const ExperienceSection = () => {
                 {isActive && (
                   <motion.div
                     layoutId="active-exp-pill"
-                    className="absolute inset-0 rounded-2xl border border-gray-200 bg-white shadow-soft dark:border-white/5 dark:bg-zinc-900/60"
+                    className="absolute inset-0 surface-neu"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -148,14 +148,14 @@ const ExperienceSection = () => {
             Professional Certifications
           </Typography>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {CERTIFICATES.map((certificate) => (
             <a
               key={certificate.CertificateName}
               href={certificate.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-soft dark:border-white/5 dark:bg-zinc-900/60 dark:hover:border-primary"
+              className="group surface-neu p-4 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="relative mb-3 aspect-[4/3] overflow-hidden rounded-xl bg-gray-50 dark:bg-zinc-950">
                 {certificate.image ? (

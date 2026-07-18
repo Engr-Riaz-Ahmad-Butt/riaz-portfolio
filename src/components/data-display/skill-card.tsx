@@ -6,7 +6,7 @@ import Typography from '@/components/general/typography';
 
 const SkillCard = ({ logo, darkModeLogo, label }: TechDetails) => {
   return (
-    <div className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-gray-200 bg-gray p-5 shadow-card transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-card-hover">
+    <div className="group flex flex-col items-center justify-center gap-3 surface-neu p-5 transition duration-300 hover:-translate-y-1">
       <div className="relative h-12 w-12">
         <ImageWrapper
           src={logo}

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Briefcase, Code2, GraduationCap } from 'lucide-react';
+import { Briefcase, Code2, GraduationCap } from 'lucide-react';
 
 import Tag from '@/components/data-display/tag';
 import Container from '@/components/layout/container';
@@ -123,9 +123,9 @@ const AboutMeSection = () => {
           viewport={{ once: true }}
           variants={fadeUp}
           transition={{ ...fadeUpTransition, delay: 0.14 }}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2"
         >
-          <div className="flex gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+          <div className="flex gap-4 surface-neu p-5">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <GraduationCap size={24} aria-hidden />
             </div>
@@ -138,7 +138,7 @@ const AboutMeSection = () => {
               </Typography>
             </div>
           </div>
-          <div className="flex gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+          <div className="flex gap-4 surface-neu p-5">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Briefcase size={24} aria-hidden />
             </div>
@@ -162,10 +162,7 @@ const AboutMeSection = () => {
           className="flex flex-wrap gap-3"
         >
           <Button asChild>
-              <a href="/#work">
-                View selected work
-                <ArrowUpRight size={16} aria-hidden />
-              </a>
+              <a href="/#work">View selected work</a>
             </Button>
             <Button asChild variant="outline">
               <a href="/#contact">Start a conversation</a>

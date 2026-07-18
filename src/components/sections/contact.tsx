@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUpRight, Check, Copy, Mail, Phone } from 'lucide-react';
+import { Check, Copy, Mail, Phone } from 'lucide-react';
 
 import SocialIcons from '@/components/data-display/social-icons';
 import Tag from '@/components/data-display/tag';
@@ -38,7 +38,7 @@ const ContactRow = ({
   onCopy: (text: string, type: CopyValue) => void;
   copied: boolean;
 }) => (
-  <div className="rounded-2xl border border-gray-200 bg-gray p-4 transition hover:border-primary">
+  <div className="surface-neu p-4 transition">
     <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-gray-700">
         <Icon className="h-5 w-5" aria-hidden />
@@ -125,10 +125,7 @@ const ContactSection = () => {
           </Typography>
           <div className="mt-6 flex justify-center">
             <Button asChild>
-              <a href={`mailto:${email}`}>
-                Email me
-                <ArrowUpRight size={16} />
-              </a>
+              <a href={`mailto:${email}`}>Email me</a>
             </Button>
           </div>
         </motion.div>
@@ -141,7 +138,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           variants={fadeUp}
           transition={fadeUpTransition}
-          className="rounded-2xl border border-gray-200 bg-gray p-6 shadow-card md:p-8"
+          className="surface-neu p-6 md:p-8"
         >
           <h3 className="text-2xl font-semibold text-gray-900">
             Reach out directly
@@ -186,7 +183,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           variants={fadeUp}
           transition={{ ...fadeUpTransition, delay: 0.08 }}
-          className="rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8"
+          className="surface-neu p-6 md:p-8"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
             Open to
@@ -199,7 +196,7 @@ const ContactSection = () => {
             <li>MERN APIs, dashboards, and integration work</li>
             <li>Collaboration with product, design, and ML teams</li>
           </ul>
-          <div className="mt-8 rounded-2xl border border-gray-200 bg-gray p-5">
+          <div className="mt-8 surface-neu p-5">
             <p className="text-sm font-medium text-gray-900">Find me online</p>
             <div className="mt-4">
               <SocialIcons />

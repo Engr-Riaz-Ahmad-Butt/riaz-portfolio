@@ -45,7 +45,7 @@ const ExperienceDetails = ({
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       className="w-full"
     >
-      <article className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-5 shadow-soft dark:border-white/5 dark:bg-zinc-900/60 md:p-6">
+      <article className="relative surface-neu p-5 md:p-6">
         {/* Subtle background glow */}
         <div className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-primary/10 blur-3xl dark:bg-primary/5" />
 

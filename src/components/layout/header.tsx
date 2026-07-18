@@ -78,7 +78,7 @@ const Header = () => {
         'fixed inset-x-0 top-0 z-50 w-full py-3 transition-[background-color,border-color,backdrop-filter,color] duration-300',
         overHero
           ? 'border-b border-transparent bg-transparent'
-          : 'border-b border-white/10 bg-gray/80 backdrop-blur-md'
+          : 'border-b border-transparent surface-glass'
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
@@ -96,7 +96,7 @@ const Header = () => {
                     'text-sm font-medium transition-colors',
                     overHero
                       ? activeHref === link.href
-                        ? 'text-teal-300'
+                        ? 'text-[#E4E3D8]'
                         : 'text-[#E1E0CC]/90 hover:text-white'
                       : activeHref === link.href
                         ? 'text-primary'
@@ -110,7 +110,7 @@ const Header = () => {
                     layoutId="nav-underline"
                     className={mergeClasses(
                       'absolute -bottom-1 left-0 h-0.5 w-full origin-left',
-                      overHero ? 'bg-teal-300' : 'bg-primary'
+                      overHero ? 'bg-[#E4E3D8]' : 'bg-primary'
                     )}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />

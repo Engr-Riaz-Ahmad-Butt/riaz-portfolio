@@ -15,8 +15,8 @@ const SKILL_GROUPS = [
     description:
       'Building responsive, accessible interfaces with modern frameworks and design systems.',
     icon: Code2,
-    iconClassName: 'text-teal-500 dark:text-teal-300',
-    iconBg: 'bg-teal-500/10',
+    iconClassName: 'text-zinc-700 dark:text-zinc-300',
+    iconBg: 'bg-zinc-500/10',
     tags: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS'],
   },
   {
@@ -24,8 +24,8 @@ const SKILL_GROUPS = [
     description:
       'Architecting robust APIs and services that stay reliable as products grow.',
     icon: Server,
-    iconClassName: 'text-emerald-500 dark:text-emerald-300',
-    iconBg: 'bg-emerald-500/10',
+    iconClassName: 'text-zinc-600 dark:text-zinc-400',
+    iconBg: 'bg-zinc-500/10',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'SQL', 'Socket.io'],
   },
   {
@@ -33,8 +33,8 @@ const SKILL_GROUPS = [
     description:
       'Streamlining delivery workflows and shipping with solid engineering tooling.',
     icon: Cloud,
-    iconClassName: 'text-sky-500 dark:text-sky-300',
-    iconBg: 'bg-sky-500/10',
+    iconClassName: 'text-zinc-500 dark:text-zinc-400',
+    iconBg: 'bg-zinc-500/10',
     tags: ['Docker', 'Kubernetes', 'AWS', 'Git', 'CI/CD', 'Netlify', 'Vercel'],
   },
 ] as const;
@@ -66,7 +66,7 @@ const SkillsSection = () => {
         </motion.div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {SKILL_GROUPS.map((group, index) => {
           const Icon = group.icon;
 
@@ -81,7 +81,7 @@ const SkillsSection = () => {
                 ...fadeUpTransition,
                 delay: index * MOTION_STAGGER,
               }}
-              className="flex h-full flex-col rounded-2xl border border-gray-200 bg-gray p-6 shadow-card transition-colors hover:border-primary/30 md:p-7"
+              className="flex h-full flex-col surface-neu p-6 transition-colors md:p-7"
             >
               <div
                 className={mergeClasses(

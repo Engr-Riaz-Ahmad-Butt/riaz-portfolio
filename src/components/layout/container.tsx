@@ -12,7 +12,8 @@ const Container = React.forwardRef<HTMLElement, ContainerProps>(
       <section
         className={mergeClasses(
           'scroll-mt-24 w-full py-16 md:py-20 2xl:py-24',
-          altSurface ? 'bg-gray-50' : 'bg-gray',
+          /* Same soft-UI canvas in both modes so neu shadows read correctly */
+          'bg-gray',
           className
         )}
         ref={ref}

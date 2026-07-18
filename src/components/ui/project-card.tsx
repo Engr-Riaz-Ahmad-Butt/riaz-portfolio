@@ -33,7 +33,7 @@ const ProjectCard = React.forwardRef<HTMLDivElement, ProjectCardProps>(
       <div
         ref={ref}
         className={mergeClasses(
-          'group relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-gray shadow-sm transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-card-hover',
+          'group relative flex flex-col surface-neu transition-all duration-500 ease-in-out hover:-translate-y-1',
           className
         )}
         {...props}
@@ -42,7 +42,7 @@ const ProjectCard = React.forwardRef<HTMLDivElement, ProjectCardProps>(
           href={link}
           target={external ? '_blank' : undefined}
           rel={external ? 'noopener noreferrer' : undefined}
-          className="relative block aspect-video overflow-hidden bg-gray-50"
+          className="relative block aspect-video overflow-hidden rounded-t-[30px] bg-gray-50"
           aria-label={`${title} — ${linkText}`}
         >
           {imgSrc ? (

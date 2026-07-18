@@ -67,7 +67,7 @@ const StatBadge = ({
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45, delay }}
       className={mergeClasses(
-        'flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray p-4 shadow-card',
+        'flex items-center gap-4 surface-neu p-4',
         className
       )}
     >
