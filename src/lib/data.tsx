@@ -130,25 +130,29 @@ export const EXPERIENCES: ExperienceDetails[] = [
     logoAlt: 'Aawaz AI',
     darkLogo: true,
     position: 'Full Stack Developer',
-    startDate: new Date(2025, 11),
+    startDate: new Date(2025, 10), // November (10)
     currentlyWorkHere: true,
     summary: [
-      'Shipping frontend systems for ML-connected products with React Flow, React, and Next.js.',
-      'Partner with ML engineers to integrate model outputs and data pipelines into usable product workflows.',
-      'Own UI implementation, API integration points, and cross-team delivery coordination.',
+      'Developed Clarno, an AI-powered startup validation platform, architecting the frontend with Next.js, React, and Zustand paired with robust backend APIs.',
+      'Designed and built an interactive opportunity-solution tree using React Flow and Dagre for visual decision mapping.',
+      'Implemented multi-step validation workflows and analytics dashboards to display simulation metrics and business insights on responsive layouts.',
+      'Created highly accessible, modular UI libraries using Radix UI, integrating Framer Motion transitions and React Markdown for AI outputs.',
+      'Collaborated with stakeholders to gather requirements, translating business vision into production-ready full-stack applications.',
     ],
   },
   {
     logo: LogoMexil,
     url: 'https://mexil.it/',
-    logoAlt: 'Mexil Software Solutions',
-    position: 'Full Stack Developer',
-    startDate: new Date(2024, 3),
-    endDate: new Date(2025, 10),
+    logoAlt: 'Mexil Software Solution',
+    position: 'MERN Stack Developer',
+    startDate: new Date(2024, 2), // March (2)
+    endDate: new Date(2025, 10), // November (10)
     summary: [
-      'Built production MERN and Next.js applications including travel booking client and admin tooling.',
-      'Delivered responsive UI, authenticated workflows, and API integrations used by real customers.',
-      'Improved delivery quality through component-driven development with Tailwind CSS.',
+      'Engineered scalable full-stack web platforms using the MERN stack, Next.js, and SQL databases with Heroku deployment and CI/CD pipelines.',
+      'Integrated Meta Graph APIs (WhatsApp, Facebook, Instagram) to build complex social messaging integrations and automated workflows.',
+      'Developed real-time chat products utilizing WebSockets and configured secure media handling workflows using AWS S3.',
+      'Built modular, highly responsive layouts with Tailwind CSS and Shadcn/UI, integrating AI models to automate core processes.',
+      'Optimized API response times and database query execution to enhance overall platform performance and scale.',
     ],
   },
   {
@@ -159,9 +163,11 @@ export const EXPERIENCES: ExperienceDetails[] = [
     startDate: new Date(2024, 1),
     endDate: new Date(2024, 3),
     summary: [
-      'Translated client requirements into NetSuite customizations and approval workflows.',
-      'Built HTML/PDF templates for personalized business reports.',
-      'Customized modules to streamline internal business processes.',
+      'Gathered and translated complex client business requirements into precise NetSuite ERP customizations, including custom records, fields, and approval routing workflows.',
+      'Designed and developed pixel-perfect HTML/PDF report templates for financial statements, invoices, and operational business documents.',
+      'Built and deployed SuiteScript automations to eliminate manual data entry and streamline multi-step approval processes across departments.',
+      'Customized NetSuite modules — including CRM, purchasing, and inventory — to align platform behavior with client-specific operational workflows.',
+      'Collaborated directly with stakeholders to validate requirements, test customizations in sandbox environments, and ensure delivery met business objectives.',
     ],
   },
   {
@@ -172,8 +178,11 @@ export const EXPERIENCES: ExperienceDetails[] = [
     startDate: new Date(2023, 3),
     endDate: new Date(2023, 6),
     summary: [
-      'Completed a hands-on fellowship building full-stack apps with MongoDB, Express, React, and Node.js.',
-      'Practiced industry workflows with mentors: design, develop, review, and deploy.',
+      'Completed an intensive 3-month industry fellowship, building production-grade full-stack web applications using MongoDB, Express.js, React, and Node.js.',
+      'Implemented RESTful APIs with JWT authentication, role-based access control, and secure route protection patterns.',
+      'Developed responsive, component-driven frontends using React, applying state management patterns and reusable UI architecture.',
+      'Followed real-world engineering workflows — agile sprints, code reviews, Git branching strategies, and CI/CD-assisted deployments.',
+      'Received mentorship from senior engineers on software architecture, clean code principles, and production deployment best practices.',
     ],
   },
 ];

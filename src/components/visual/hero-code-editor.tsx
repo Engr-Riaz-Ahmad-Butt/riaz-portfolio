@@ -28,7 +28,7 @@ const highlightLine = (line: string) => {
   const pushPlain = (value: string) => {
     if (!value) return;
     parts.push(
-      <span key={`t-${key++}`} className="text-gray-700 dark:text-gray-300">
+      <span key={`t-${key++}`} className="text-gray-700 dark:text-gray-700">
         {value}
       </span>
     );

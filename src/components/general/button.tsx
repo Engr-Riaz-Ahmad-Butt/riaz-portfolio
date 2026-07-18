@@ -14,7 +14,7 @@ const buttonVariants = cva(
         primary:
           'bg-primary text-primary-foreground hover:bg-teal-700 dark:hover:bg-teal-300',
         outline:
-          'border border-gray-300 bg-transparent text-gray-900 hover:border-primary hover:text-primary dark:border-white/15 dark:text-gray-300 dark:hover:border-primary dark:hover:text-primary',
+          'border border-gray-300 bg-transparent text-gray-900 hover:border-primary hover:text-primary dark:border-white/15 dark:text-gray-700 dark:hover:border-primary dark:hover:text-primary',
         ghost: 'text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-100',
       },
     },

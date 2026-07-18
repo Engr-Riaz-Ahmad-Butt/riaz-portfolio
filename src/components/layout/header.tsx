@@ -23,11 +23,11 @@ import DownloadCV from '@/components/general/download-cv';
 const Logo = ({ onHero }: { onHero: boolean }) => (
   <span
     className={mergeClasses(
-      'font-mono text-xl font-bold transition-colors',
+      'font-mono text-xl font-bold tracking-tight transition-colors',
       onHero ? 'text-[#E1E0CC]' : 'text-gradient'
     )}
   >
-    {'<RB />'}
+    {'<RB/>'}
   </span>
 );
 
