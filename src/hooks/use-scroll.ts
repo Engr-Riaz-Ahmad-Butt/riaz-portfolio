@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useLenis } from 'lenis/react';
 
 export default function useScroll(threshold: number) {
   const [scrolled, setScrolled] = useState(false);
@@ -14,10 +13,6 @@ export default function useScroll(threshold: number) {
     },
     [threshold]
   );
-
-  useLenis((lenis) => {
-    update(lenis.scroll);
-  });
 
   useEffect(() => {
     update(window.scrollY || 0);

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -19,17 +20,27 @@ import ThemeSwitcher from '@/components/general/theme-switcher';
 import IconButton from '@/components/general/icon-button';
 import DownloadCV from '@/components/general/download-cv';
 
-const Logo = () => (
-  <span className="font-mono text-xl font-bold text-gradient transition-colors">
+const Logo = ({ onHero }: { onHero: boolean }) => (
+  <span
+    className={mergeClasses(
+      'font-mono text-xl font-bold transition-colors',
+      onHero ? 'text-[#E1E0CC]' : 'text-gradient'
+    )}
+  >
     {'<RB />'}
   </span>
 );
 
 const Header = () => {
-  const scrolled = useScroll(20);
+  const pathname = usePathname();
+  const scrolled = useScroll(40);
   const [isOpen, setIsOpen] = useState(false);
   const [activeHref, setActiveHref] = useState(NAV_LINKS[0].href);
   const size = useWindowSize();
+
+  const isHome = pathname === '/';
+  // Transparent over the cinematic hero; solid once you leave it
+  const overHero = isHome && !scrolled;
 
   useEffect(() => {
     if (size?.width && size.width >= 1024 && isOpen) {
@@ -38,6 +49,8 @@ const Header = () => {
   }, [size, isOpen]);
 
   useEffect(() => {
+    if (!isHome) return;
+
     const sectionIds = NAV_LINKS.map((link) => getSectionId(link.href));
     const observers: IntersectionObserver[] = [];
 
@@ -57,20 +70,20 @@ const Header = () => {
     });
 
     return () => observers.forEach((observer) => observer.disconnect());
-  }, []);
+  }, [isHome]);
 
   return (
     <header
       className={mergeClasses(
-        'sticky top-0 z-40 w-full border-b border-transparent py-3 transition-[background-color,border-color,backdrop-filter] duration-300',
-        scrolled
-          ? 'border-white/10 bg-gray/80 backdrop-blur-md'
-          : 'bg-transparent'
+        'fixed inset-x-0 top-0 z-50 w-full py-3 transition-[background-color,border-color,backdrop-filter,color] duration-300',
+        overHero
+          ? 'border-b border-transparent bg-transparent'
+          : 'border-b border-white/10 bg-gray/80 backdrop-blur-md'
       )}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 md:px-6 lg:px-8">
         <Link href="/" noCustomization aria-label="Home">
-          <Logo />
+          <Logo onHero={overHero} />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-6 lg:flex xl:gap-8">
@@ -80,8 +93,14 @@ const Header = () => {
                 <Link
                   href={link.href}
                   className={mergeClasses(
-                    'text-sm font-medium transition-colors hover:text-primary',
-                    activeHref === link.href ? 'text-primary' : 'text-gray-600'
+                    'text-sm font-medium transition-colors',
+                    overHero
+                      ? activeHref === link.href
+                        ? 'text-teal-300'
+                        : 'text-[#E1E0CC]/90 hover:text-white'
+                      : activeHref === link.href
+                        ? 'text-primary'
+                        : 'text-gray-600 hover:text-primary'
                   )}
                 >
                   {link.label}
@@ -89,14 +108,22 @@ const Header = () => {
                 {activeHref === link.href ? (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 h-0.5 w-full origin-left bg-primary"
+                    className={mergeClasses(
+                      'absolute -bottom-1 left-0 h-0.5 w-full origin-left',
+                      overHero ? 'bg-teal-300' : 'bg-primary'
+                    )}
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 ) : null}
               </li>
             ))}
           </ul>
-          <div className="h-5 w-px bg-gray-200" />
+          <div
+            className={mergeClasses(
+              'h-5 w-px',
+              overHero ? 'bg-white/25' : 'bg-gray-200'
+            )}
+          />
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
             <DownloadCV />
@@ -105,13 +132,20 @@ const Header = () => {
 
         <Drawer open={isOpen} onOpenChange={setIsOpen}>
           <DrawerTrigger asChild className="flex lg:hidden">
-            <IconButton aria-label="Open menu">
+            <IconButton
+              aria-label="Open menu"
+              className={
+                overHero
+                  ? 'hover:bg-white/10 [&_svg]:stroke-[#E1E0CC] [&_svg]:hover:stroke-white'
+                  : undefined
+              }
+            >
               <Menu />
             </IconButton>
           </DrawerTrigger>
           <DrawerContent className="bg-gray/95 backdrop-blur-md">
             <div className="flex items-center justify-between border-b border-gray-200 p-4">
-              <Logo />
+              <Logo onHero={false} />
               <DrawerClose asChild>
                 <IconButton aria-label="Close menu">
                   <X />

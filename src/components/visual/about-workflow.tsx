@@ -56,9 +56,9 @@ const AboutWorkflow = ({ className }: AboutWorkflowProps) => {
             return (
               <motion.article
                 key={item.title}
-                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={reduceMotion ? false : { y: 12 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{
                   duration: 0.4,
                   delay: reduceMotion ? 0 : index * 0.08,

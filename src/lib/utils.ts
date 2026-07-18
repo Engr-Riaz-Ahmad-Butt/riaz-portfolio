@@ -5,6 +5,9 @@ export const mergeClasses = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs));
 };
 
+/** Alias used by some UI snippets / shadcn-style components */
+export const cn = mergeClasses;
+
 export const copyTextToClipboard = async (text: string) => {
   if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
     await navigator.clipboard.writeText(text);
