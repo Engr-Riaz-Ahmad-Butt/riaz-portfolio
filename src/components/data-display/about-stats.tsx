@@ -49,12 +49,22 @@ const StatBadge = ({
     return () => controls.stop();
   }, [inView, count, value, delay]);
 
+  // Fallback if IntersectionObserver never fires (e.g. Lenis edge cases)
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      if (count.get() === 0) {
+        animate(count, value, { duration: 0.8, ease: 'easeOut' });
+      }
+    }, 1500);
+    return () => window.clearTimeout(t);
+  }, [count, value]);
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      initial={{ y: 16 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45, delay }}
       className={mergeClasses(
         'flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray p-4 shadow-card',

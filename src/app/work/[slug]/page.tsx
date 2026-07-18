@@ -38,7 +38,7 @@ export default function CaseStudyPage({ params }: PageProps) {
   if (!study) notFound();
 
   return (
-    <article className="mx-auto w-full max-w-4xl px-4 py-16 md:px-8 md:py-24">
+    <article className="mx-auto w-full max-w-4xl px-4 pb-16 pt-24 md:px-8 md:pb-24 md:pt-28">
       <Link
         href="/#work"
         className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"

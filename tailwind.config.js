@@ -12,6 +12,8 @@ module.exports = {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         display: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+        script: ['var(--font-script)', 'cursive'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
       },
       colors: {
         gray: {

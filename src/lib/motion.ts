@@ -9,8 +9,9 @@ export const MOTION_DURATION = {
 
 export const MOTION_STAGGER = 0.08;
 
+/** Keep opacity at 1 so Lenis/IO misses never leave sections blank */
 export const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
@@ -23,3 +24,10 @@ export const heroTransition = {
   duration: MOTION_DURATION.hero,
   ease: MOTION_EASE,
 };
+
+/** Shared viewport — generous margin so reveals fire under Lenis */
+export const inViewViewport = {
+  once: true,
+  amount: 0.15,
+  margin: '0px 0px -5% 0px',
+} as const;

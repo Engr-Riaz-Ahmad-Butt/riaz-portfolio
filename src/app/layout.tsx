@@ -1,6 +1,11 @@
 import Script from 'next/script';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import { Metadata } from 'next';
+import {
+  Great_Vibes,
+  Instrument_Serif,
+  Inter,
+  JetBrains_Mono,
+} from 'next/font/google';
+import { Metadata, Viewport } from 'next';
 
 import './globals.css';
 import Header from '@/components/layout/header';
@@ -20,10 +25,32 @@ const mono = JetBrains_Mono({
   display: 'swap',
 });
 
+const script = Great_Vibes({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-script',
+  display: 'swap',
+});
+
+const serif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+});
+
 const title = 'Riaz Ahmad Butt | Full Stack Developer';
 const description =
   'Riaz Ahmad Butt is a Full Stack Developer (MERN, Next.js, TypeScript) and Software Engineer based in Islamabad, Pakistan, building fast, scalable web applications. Available for freelance and full-time roles.';
 const url = 'https://www.engr-riaz.tech/';
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f4f7f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -38,10 +65,6 @@ export const metadata: Metadata = {
     'Riaz Ahmad Butt',
   ],
   creator: 'Riaz Ahmad Butt',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f4f7f6' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
   openGraph: {
     type: 'website',
     url,
@@ -118,7 +141,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${mono.variable}`}
+      className={`${sans.variable} ${mono.variable} ${script.variable} ${serif.variable}`}
       suppressHydrationWarning
     >
       {googleAnalyticsId ? (

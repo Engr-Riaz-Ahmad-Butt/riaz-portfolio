@@ -25,6 +25,7 @@ import ProjectTalkingMe from '/public/images/talkingme.jpg';
 import ProjectNyfClient from '/public/images/nyf.jpg';
 import ProjectNyfAdmin from '/public/images/dashboard.png';
 import ProjectAthadak from '/public/images/athadak.jpg';
+import ProjectPayloada from '/public/images/payloada.png';
 
 import NcriCertificate from '/public/images/NCRI.jpg';
 import BytwiseCertificate from '/public/images/bytwiseExpletter.jpg';
@@ -178,6 +179,20 @@ export const EXPERIENCES: ExperienceDetails[] = [
 ];
 
 export const PROJECTS: ProjectDetails[] = [
+  {
+    name: 'Payloada',
+    description:
+      'A modern JSON workspace for developers — format, validate, decode JWTs, compare payloads, and generate TypeScript/Zod outputs in a privacy-first local tool.',
+    url: 'https://payloada.vercel.app/',
+    previewImage: ProjectPayloada,
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    featured: true,
+    role: 'Full Stack Developer',
+    category: 'Frontend',
+    status: 'completed',
+    outcome:
+      'Fast local-only JSON tooling with formatter, JWT decoder, diff, and schema generators.',
+  },
   {
     name: 'Talking Me',
     description:

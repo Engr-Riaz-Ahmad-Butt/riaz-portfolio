@@ -8,10 +8,10 @@ export const EXTERNAL_LINKS = {
 };
 
 export const NAV_LINKS = [
+  { label: 'About', href: '/#about' },
   { label: 'Projects', href: '/#work' },
   { label: 'Experience', href: '/#experience' },
   { label: 'Skills', href: '/#skills' },
-  { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
 
